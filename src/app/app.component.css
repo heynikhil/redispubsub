@@ -1,0 +1,7 @@
+::ng-deep .green-snackbar {
+    background: green;
+  }
+
+  ::ng-deep .red-snackbar {
+    background: red;
+  }
