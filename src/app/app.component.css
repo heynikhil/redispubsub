@@ -5,3 +5,28 @@
   ::ng-deep .red-snackbar {
     background: red;
   }
+
+.example-card {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.naruto, .deku, .demon {  
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+
+.naruto-header-image {
+  background-image: url('src/assets/naruto.png');
+  background-size: cover;
+}
+.deku-header-image {
+  background-image: url('src/assets/deku.png');
+  background-size: cover;
+}
+.demon-header-image {
+  background-image: url('src/assets/demon.png');
+  background-size: cover;
+}
+

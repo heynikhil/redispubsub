@@ -1,15 +1,86 @@
-<div class="div" id="content">
+<!-- <div class="div" id="content">
   <p *ngIf="socket.connected$ | async as user">
     {{user ? "Connected" : "Not Connected"}}
   </p>
-</div>
+</div> -->
 
-<ul>
+<!-- <ul>
   <li *ngFor="let msg of messages">{{msg}}</li>
-</ul>
+</ul> -->
+
+<mat-tab-group color="warn" backgroundColor="primary">
+  <mat-tab label="Naruto Shippūden">
+    <mat-card class="naruto">
+      <mat-card-header>
+        <div mat-card-avatar class="naruto-header-image"></div>
+        <mat-card-title>Naruto Shippūden</mat-card-title>
+        <mat-card-subtitle>Anime</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="assets/naruto_home.jpeg" alt="Naruto Shippūden">
+      <mat-card-content>
+        <p>
+          More than two years have passed since the most recent adventures in the Hidden Leaf Village, ample time for
+          ninja
+          wannabe Naruto Uzumaki to have developed skills worthy of recognition and respect. The hyperactive youngster
+          has trained
+          extensively with Jiraiya-sama and returned to Konoha to reunite
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="sendSubscribtion('naruto')">Subscribe</button>
+        <button mat-button color="warn" (click)="sendUnsubscribtion('naruto')">Unsubscribe</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="My Hero Academia">
+    <mat-card class="deku">
+      <mat-card-header>
+        <div mat-card-avatar class="deku-header-image"></div>
+        <mat-card-title>My Hero Academia</mat-card-title>
+        <mat-card-subtitle>Anime</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="assets/deku_home.png" alt="My Hero Academia">
+      <mat-card-content>
+        <p>
+          My Hero Academia is a Japanese superhero manga series written and illustrated by Kōhei Horikoshi. It has been
+          serialized
+          in Weekly Shōnen Jump since July 2014, with its chapters additionally collected in 24 tankōbon volumes as
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="sendSubscribtion('deku')">Subscribe</button>
+        <button mat-button color="warn" (click)="sendUnsubscribtion('deku')">Unsubscribe</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Kimetsu no Yaiba">
+    <mat-card class="demon">
+      <mat-card-header>
+        <div mat-card-avatar class="demon-header-image"></div>
+        <mat-card-title>Kimetsu no Yaiba</mat-card-title>
+        <mat-card-subtitle>Anime</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="assets/demon_home.jpg" alt="Kimetsu no Yaiba">
+      <mat-card-content>
+        <p>
+          Demon Slayer: Kimetsu no Yaiba is a Japanese manga series written and illustrated by Koyoharu Gotōge. The
+          story follows
+          Tanjirō Kamado, a young boy who becomes a demon slayer after his family is slaughtered and his younger sister
+          Nezuko is
+          turned into a demon.
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="sendSubscribtion('demon')">Subscribe</button>
+        <button mat-button color="warn" (click)="sendUnsubscribtion('demon')">Unsubscribe</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>
 
 
-<button mat-raised-button (click)="sendSubscribtion()">Subscribe</button>
-<button mat-raised-button color="warn" (click)="sendUnsubscribtion()">Unsubscribe</button>
+
+
+
 
 <router-outlet></router-outlet>

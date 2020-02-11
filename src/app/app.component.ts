@@ -9,37 +9,36 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class AppComponent implements OnInit {
   title = 'pubsubredis';
-  content: any = document.getElementById('content');
-  messages = []
-  constructor(public socket: SocketService, private _snackBar: MatSnackBar) {
+  messages = [];
+  constructor(public socket: SocketService, private snackBar: MatSnackBar) {
   }
+
   ngOnInit() {
 
     this.socket.listen('resSubscribe').subscribe(response => {
-      this.openSnackBar(response.message)
-    })
+      this.openSnackBar(response.message);
+    });
 
     this.socket.listen('message').subscribe(message => {
-      console.log("===",message)
-      this.messages.push(message)
-    })
+      this.messages.push(message);
+    });
 
-    this.socket.listen("resUnsubscribe").subscribe(response=> {
-      this.openSnackBar(response.message)
-    })
+    this.socket.listen('resUnsubscribe').subscribe(response => {
+      this.openSnackBar(response.message);
+    });
   }
 
-  sendSubscribtion() {
-    this.socket.emit('reqSubscribe')
+  sendSubscribtion(sName) {
+    this.socket.emit('reqSubscribe', { sName });
   }
 
-  sendUnsubscribtion() {
-    this.socket.emit('reqUnsubscribe')
+  sendUnsubscribtion(sName) {
+    this.socket.emit('reqUnsubscribe', { sName });
   }
 
   openSnackBar(message: string) {
-    this._snackBar.open(message,'close',{ 
-      duration: 2000,  
+    this.snackBar.open(message, 'close', {
+      duration: 2000,
       panelClass: ['green-snackbar']
     });
   }
