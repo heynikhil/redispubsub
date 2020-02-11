@@ -27,7 +27,7 @@
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <button *ngIf="!naruto" mat-button (click)="sendSubscribtion('naruto')">Subscribe</button>
+        <button *ngIf="!naruto" mat-button color="primary" (click)="sendSubscribtion('naruto')">Subscribe</button>
         <button *ngIf="naruto" mat-button color="warn" (click)="sendUnsubscribtion('naruto')">Unsubscribe</button>
       </mat-card-actions>
     </mat-card>
@@ -48,7 +48,7 @@
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <button *ngIf="!deku" mat-button (click)="sendSubscribtion('deku')">Subscribe</button>
+        <button *ngIf="!deku" mat-button color="primary" (click)="sendSubscribtion('deku')">Subscribe</button>
         <button *ngIf="deku" mat-button color="warn" (click)="sendUnsubscribtion('deku')">Unsubscribe</button>
       </mat-card-actions>
     </mat-card>
@@ -71,7 +71,7 @@
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <button *ngIf="!demon" mat-button (click)="sendSubscribtion('demon')">Subscribe</button>
+        <button *ngIf="!demon" mat-button color="primary" (click)="sendSubscribtion('demon')">Subscribe</button>
         <button *ngIf="demon" mat-button color="warn" (click)="sendUnsubscribtion('demon')">Unsubscribe</button>
       </mat-card-actions>
     </mat-card>
