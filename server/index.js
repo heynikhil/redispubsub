@@ -13,14 +13,16 @@ io.on('connection', function (clinet) {
         clinet.send(message);
     });
 
-    clinet.on('reqSubscribe', function () {
-        subscriber.subscribe('pubsub')
+    clinet.on('reqSubscribe', function (body) {
+        const { sName } = body
+        subscriber.subscribe(sName)
         clinet.emit("resSubscribe", { message: "subscribe success" })
     });
 
-    clinet.on('reqUnsubscribe', () => {
+    clinet.on('reqUnsubscribe', (body) => {
+        const { sName } = body
         clinet.emit("resUnsubscribe", { message: "Unsubscribe success" })
-        subscriber.unsubscribe('pubsub')
+        subscriber.unsubscribe(sName)
     })
 
     clinet.on('disconnect', () => subscriber.quit());
