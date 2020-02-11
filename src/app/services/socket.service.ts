@@ -13,7 +13,7 @@ export class SocketService {
   connected$ = new BehaviorSubject<boolean>(true);
 
   constructor() {
-    this.socket = io(environment.baseUrl)
+    this.socket = io(environment.baseUrl);
   }
 
   getConnection() {

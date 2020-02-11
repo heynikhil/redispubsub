@@ -14,13 +14,16 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.socket.listen('connect').subscribe(response => {
+      console.log('CONNECTED');
+    });
 
     this.socket.listen('resSubscribe').subscribe(response => {
       this.openSnackBar(response.message);
     });
 
     this.socket.listen('message').subscribe(message => {
-      this.messages.push(message);
+      this.openSnackBar(message);
     });
 
     this.socket.listen('resUnsubscribe').subscribe(response => {
