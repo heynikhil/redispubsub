@@ -8,8 +8,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'pubsubredis';
-  messages = [];
+  naruto = false;
+  deku = false;
+  demon = false;
   constructor(public socket: SocketService, private snackBar: MatSnackBar) {
   }
 
@@ -19,6 +20,7 @@ export class AppComponent implements OnInit {
     });
 
     this.socket.listen('resSubscribe').subscribe(response => {
+
       this.openSnackBar(response.message);
     });
 
@@ -32,17 +34,21 @@ export class AppComponent implements OnInit {
   }
 
   sendSubscribtion(sName) {
+    this[sName] = true;
     this.socket.emit('reqSubscribe', { sName });
   }
 
   sendUnsubscribtion(sName) {
+    this[sName] = false;
     this.socket.emit('reqUnsubscribe', { sName });
   }
 
   openSnackBar(message: string) {
     this.snackBar.open(message, 'close', {
       duration: 2000,
-      panelClass: ['green-snackbar']
+      panelClass: ['green-snackbar'],
+      horizontalPosition: 'right',
+      verticalPosition: 'top'
     });
   }
 }
