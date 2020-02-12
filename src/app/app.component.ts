@@ -15,21 +15,17 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.socket.listen('connect').subscribe(response => {
-      console.log('CONNECTED');
-    });
-
     this.socket.listen('resSubscribe').subscribe(response => {
       this.openSnackBar(response.message);
     });
 
-    this.socket.listen('message').subscribe(body => {
-      const { channel, message } = body
-      this.openSnackBar(`${channel} => ${message}`);
-    });
-
     this.socket.listen('resUnsubscribe').subscribe(response => {
       this.openSnackBar(response.message);
+    });
+
+    this.socket.listen('message').subscribe(body => {
+      const { channel, message } = body;
+      this.openSnackBar(`${channel} => ${message}`);
     });
   }
 

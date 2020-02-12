@@ -16,10 +16,6 @@ export class SocketService {
     this.socket = io(environment.baseUrl);
   }
 
-  connect() {
-    this.socket = io(environment.baseUrl);
-  }
-
   getConnection() {
     return this.socket;
   }
